@@ -25,12 +25,7 @@ VOLUME ["/storage"]
 VOLUME ["/output"]
 
 # Metadata.
-LABEL \
-      org.label-schema.name="cura3d" \
-      org.label-schema.description="Docker container for Cura3D" \
-      org.label-schema.version="unknown" \
-      org.label-schema.vcs-url="https://github.com/8layer8/docker-cura" \
-      org.label-schema.schema-version="1.0"
+LABEL org.opencontainers.image.source="https://github.com/jdenda/docker-cura"
       
 # Set the window name so full screen plugins (like Thingibrowser) can be closed
 RUN sed-patch 's/<application type="normal">/<application type="normal" title="Ultimaker Cura">/' /etc/xdg/openbox/rc.xml
