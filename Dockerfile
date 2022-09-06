@@ -1,5 +1,7 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:debian-10
+FROM jlesage/baseimage-gui:debian-11
+
+RUN add-pkg apt-utils
 
 # Install xterm.
 RUN add-pkg xterm sudo wget curl sed fuse
