@@ -21,8 +21,8 @@ RUN wget -O /usr/share/cura/Ultimaker_Cura.AppImage $(curl -s https://api.github
 RUN chmod a+x /usr/share/cura/Ultimaker_Cura.AppImage
 
 # Copy the start script.
-# COPY startapp.sh /startapp.sh
-RUN wget -O /startapp.sh https://raw.githubusercontent.com/jdenda/docker-cura/master/startapp.sh
+ COPY startapp.sh /startapp.sh
+# RUN wget -O /startapp.sh https://raw.githubusercontent.com/jdenda/docker-cura/master/startapp.sh
 # RUN chmod 777 /startapp.sh 
 # RUN chmod a+x /startapp.sh 
 
