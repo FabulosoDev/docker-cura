@@ -1,5 +1,13 @@
 # Pull base image.
+<<<<<<< Updated upstream
 FROM jlesage/baseimage-gui:debian-10
+=======
+FROM jlesage/baseimage-gui:alpine-3.10-glibc
+
+
+# RUN apk update && apk upgrade
+# RUN add-pkg apt-utils libc6-dev
+>>>>>>> Stashed changes
 
 # Install xterm.
 RUN add-pkg xterm sudo wget curl sed fuse
@@ -17,7 +25,10 @@ RUN wget -O /usr/share/cura/Ultimaker_Cura.AppImage $(curl -s https://api.github
 RUN chmod a+x /usr/share/cura/Ultimaker_Cura.AppImage
 
 # Copy the start script.
-COPY startapp.sh /startapp.sh
+# COPY startapp.sh /startapp.sh
+RUN wget -O /startapp.sh https://raw.githubusercontent.com/jdenda/docker-cura/master/startapp.sh
+# RUN chmod 777 /startapp.sh 
+# RUN chmod a+x /startapp.sh 
 
 # Define mountable directories.
 VOLUME ["/config"]
