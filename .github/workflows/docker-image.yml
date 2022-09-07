@@ -39,5 +39,5 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag ghcr.io/jdenda/docker-cura:${{ $steps.branch_check.outputs.env_name }}
-        docker push ghcr.io/jdenda/docker-cura:${{ $steps.branch_check.outputs.env_name }}
+        docker build . --file Dockerfile --tag ghcr.io/jdenda/docker-cura:${{ steps.branch_check.outputs.env_name }}
+        docker push ghcr.io/jdenda/docker-cura:${{ steps.branch_check.outputs.env_name }}
