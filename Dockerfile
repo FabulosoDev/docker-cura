@@ -1,13 +1,9 @@
 # Pull base image.
-<<<<<<< Updated upstream
-FROM jlesage/baseimage-gui:debian-10
-=======
 FROM jlesage/baseimage-gui:alpine-3.10-glibc
 
 
 # RUN apk update && apk upgrade
 # RUN add-pkg apt-utils libc6-dev
->>>>>>> Stashed changes
 
 # Install xterm.
 RUN add-pkg xterm sudo wget curl sed fuse
