@@ -18,13 +18,15 @@ jobs:
 
     steps:
     - name: Set environment for branch
+      id: branch_check
       run: |
         if [[ $GITHUB_REF == 'refs/heads/master' ]]; then
-            echo "TAG=latest" >> "$GITHUB_ENV"
+            echo "::set-output name=env_name::latest"
         fi
         if [[ $GITHUB_REF == 'refs/heads/5.0' ]]; then
-            echo "TAG=5" >> "$GITHUB_ENV"
+            echo "::set-output name=env_name::5"
         fi
+        
     - uses: actions/checkout@v2
     
     
@@ -37,5 +39,5 @@ jobs:
 
     - name: Build the Docker image
       run: |
-        docker build . --file Dockerfile --tag ghcr.io/jdenda/docker-cura:${{$TAG}}
-        docker push ghcr.io/jdenda/docker-cura:${{$TAG}}
+        docker build . --file Dockerfile --tag ghcr.io/jdenda/docker-cura:${{ $steps.branch_check.outputs.env_name }}
+        docker push ghcr.io/jdenda/docker-cura:${{ $steps.branch_check.outputs.env_name }}
