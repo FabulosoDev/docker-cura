@@ -24,7 +24,7 @@ jobs:
             echo "::set-output name=env_name::latest"
         fi
         if [[ $GITHUB_REF == 'refs/heads/5.0' ]]; then
-            echo "::set-output name=env_name::5"
+            echo "::set-output name=env_name::cura5"
         fi
         
     - uses: actions/checkout@v2
