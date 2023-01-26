@@ -1,5 +1,5 @@
 # docker-cura
-Cura 3D in a Docker container, Web UI
+Ultimaker Cura in a Docker container, Web UI
 
 ```bash
 docker rm docker-cura-test
