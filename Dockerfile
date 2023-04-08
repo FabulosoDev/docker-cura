@@ -1,11 +1,14 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:ubuntu-20.04
+FROM jlesage/baseimage-gui:alpine-3.17-v4
 
 # Define arguments.
 ARG CURA_VERSION
 
+# Install glibc (Alpine only)
+RUN install-glibc
+
 # Install xterm.
-RUN add-pkg xterm sudo wget curl sed fuse libegl1
+RUN add-pkg xterm sudo wget curl sed fuse
 
 # Create directories.
 RUN mkdir -p /usr/share/cura
